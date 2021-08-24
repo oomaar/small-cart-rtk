@@ -1,7 +1,9 @@
+import { Home } from "./screens"
+
 export const App = () => {
   return (
-    <h1>
-      online shop
-    </h1>
+    <div>
+      <Home />
+    </div>
   )
 }
