@@ -1,7 +1,7 @@
 export const App = () => {
   return (
     <h1>
-      Online Shop
+      online shop
     </h1>
-  );
-};
+  )
+}
