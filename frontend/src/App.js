@@ -1,5 +1,5 @@
-import { Cart, Home } from "./screens";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Cart, Home, NotFound } from "./screens";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { Navbar } from "./components";
 
 export const App = () => {
@@ -9,6 +9,8 @@ export const App = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/cart" component={Cart} />
+        <Route path="/not-found" component={NotFound} />
+        <Redirect to="/not-found" component={NotFound} />
       </Switch>
     </Router>
   )
