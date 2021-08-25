@@ -1,0 +1,13 @@
+.notfound-container {
+  justify-content: center;
+  align-items: center;
+}
+
+.notfound-title {
+  font-size: clamp(5rem, 10vw, 10rem);
+  color: #ef8c11;
+}
+
+.notfound-text {
+  font-size: clamp(1.2rem, 4vw, 3rem);
+}
