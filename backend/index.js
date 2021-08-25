@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
+const products = require("./products");
 
 app.use(express.json());
 app.use(cors());
@@ -11,7 +12,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/products", (req, res) => {
-    res.send(["Welcome to the small shopping cart", "Welcome to the cart route"]);
+    res.send(products);
 });
 
 const port = process.env.PORT || 5000;
