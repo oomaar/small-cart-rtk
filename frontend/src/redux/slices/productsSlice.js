@@ -35,6 +35,7 @@ const productsSlice = createSlice({
 });
 
 export default productsSlice.reducer;
+export const selectItems = state => state.products.items;
 
 // export const productsFetch = createAsyncThunk(
 //     "products/productsFetch",
