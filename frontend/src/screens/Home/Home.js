@@ -1,22 +1,28 @@
 import { selectItems } from "../../redux/slices/productsSlice";
 import { useSelector } from "react-redux";
+import "./Home.css";
 
 export const Home = () => {
     const items = useSelector(selectItems);
 
     const products = items.map(product => (
-        <div key={product.id}>
-            <img style={{
-                width: "600px",
-            }} src={product.img} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <span>${product.price}</span>
+        <div key={product.id} className="product__container">
+            <h3 className="product__title">{product.name}</h3>
+            <img
+                className="product__img"
+                src={product.img}
+                alt={product.name}
+            />
+            <div className="description__container">
+                <p className="product__description">{product.description}</p>
+                <span className="product__price">${product.price}</span>
+            </div>
+            <button className="product__button">Add to Cart</button>
         </div>
     ));
 
     return (
-        <div>
+        <div className="home__container">
             {products}
         </div>
     );
