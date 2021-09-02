@@ -10,7 +10,8 @@ const initialState = {
 export const productsFetch = createAsyncThunk(
     "products/productsFetch",
     async () => {
-        const res = await axios.get("http://localhost:5000/products");
+        const PORT = "http://localhost:5000/products" || process.env.PORT;
+        const res = await axios.get(`${PORT}`);
         return res?.data;
     }
 );
