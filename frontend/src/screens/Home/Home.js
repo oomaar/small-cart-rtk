@@ -20,7 +20,12 @@ export const Home = () => {
                 <p className="product__description">{product.description}</p>
                 <span className="product__price">${product.price}</span>
             </div>
-            <button className="product__button" onClick={() => handleAddToCart(product)}>Add to Cart</button>
+            <button
+                className="product__button"
+                onClick={() => handleAddToCart(product)}
+            >
+                Add to Cart
+            </button>
         </div>
     ));
 
