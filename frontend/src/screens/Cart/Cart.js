@@ -1,12 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, clearCart, decreaseCart, removeFromCart, selectItems, selectQuantity } from "../../redux/slices/cartSlice";
+import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart, selectItems } from "../../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
 import "./Cart.css";
+import { useEffect } from "react";
 
 export const Cart = () => {
     const items = useSelector(selectItems);
-    const quantity = useSelector(selectQuantity);
     const dispatch = useDispatch();
+    const cart = useSelector(state => state.cart);
+
+    useEffect(() => {
+        dispatch(getTotals());
+    }, [cart, dispatch]);
 
     const handelRemoveFromCart = product => dispatch(removeFromCart(product));
     const handleDecreaseCart = product => dispatch(decreaseCart(product));
@@ -50,7 +55,7 @@ export const Cart = () => {
                                         <div className="text__container">
                                             <h4>{item.name}</h4>
                                             <p>{item.description}</p>
-                                            <button onClick={() => handelRemoveFromCart(item)}>Remove</button>
+                                            <button onClick={() => handelRemoveFromCart(item.id)}>Remove</button>
                                         </div>
                                     </div>
                                     <span className="item__price">${item.price}</span>
@@ -79,7 +84,7 @@ export const Cart = () => {
                         <div className="subtotal__container">
                             <div className="total__contaier">
                                 <h3>Subtotal</h3>
-                                <p>${quantity}</p>
+                                <p>${cart.cartTotalAmount}</p>
                             </div>
                             <p className="total__text">Taxes and shipping calculated at checkout</p>
                             <button className="checkout">Check out</button>
